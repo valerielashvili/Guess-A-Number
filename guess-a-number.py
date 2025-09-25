@@ -2,8 +2,9 @@ import random
 
 computer_number = random.randint(1, 100)
 tries = 0
+restart_game = ''
 
-while True:
+while restart_game != 'no':
     player_input = input("Guess the number (1-100): ")
 
     if not player_input.isdigit():
@@ -22,5 +23,11 @@ while True:
         else:
             print("Too low!")
     else:
-        print("Game over! You have used all your chances...")
-        break
+        print(f"Game over! You have used all your chances...\n")
+        restart_game = input("Type [yes] to Play Again or [no] to quit: ")
+
+        if restart_game == 'yes':
+            continue
+        else:
+            print("Thank you for playing!")
+            break
